@@ -62,16 +62,17 @@ def Schedule_cmd(blocknum, blocksize, totalsize):
     recv_size = blocknum * blocksize
 
     # 设置下载进度条
-    f = sys.stdout
     pervent = recv_size / totalsize
-    totalsize_str = " totalsize: %s\r\n" % format_size(totalsize)
+    totalsize_str = " totalsize: %s\r" % format_size(totalsize)
     percent_str = "%.2f%%" % (pervent * 100)
     n = round(pervent * 50)
     s = ('#' * n).ljust(50, '-')
-    f.write(percent_str.ljust(8, ' ') + '[' + s + ']' + speed_str + totalsize_str)
-    f.flush()
+    print(percent_str.ljust(8, ' ') + '[' + s + ']' + speed_str + totalsize_str)
+    # f = sys.stdout
+    # f.write(percent_str.ljust(8, ' ') + '[' + s + ']' + speed_str + totalsize_str)
+    # f.flush()
     # time.sleep(0.1)
-    f.write('\r')
+    # f.write('\r')
 
 
 def Schedule(blocknum, blocksize, totalsize):

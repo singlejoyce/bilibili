@@ -243,7 +243,7 @@ def do_prepare(inputStart, inputQuality):
         th.join()
 
     # 最后合并视频
-    combine_video(title_list)
+    # combine_video(title_list)
 
     end_time = time.time()  # 结束时间
     print('下载总耗时%.2f秒,约%.2f分钟' % (end_time - start_time, int(end_time - start_time) / 60))
