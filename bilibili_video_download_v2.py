@@ -131,12 +131,15 @@ def down_video(video_list, title, start_url, page):
         if not os.path.exists(currentVideoPath):
             os.makedirs(currentVideoPath)
         # 开始下载
-        if len(video_list) > 1:
-            urllib.request.urlretrieve(url=i, filename=os.path.join(currentVideoPath, r'{}-{}.flv'.format(title, num)),
-                                       reporthook=Schedule_cmd)  # 写成mp4也行  title + '-' + num + '.flv'
-        else:
-            urllib.request.urlretrieve(url=i, filename=os.path.join(currentVideoPath, r'{}.flv'.format(title)),
-                                       reporthook=Schedule_cmd)  # 写成mp4也行  title + '-' + num + '.flv'
+        try:
+            if len(video_list) > 1:
+                urllib.request.urlretrieve(url=i, filename=os.path.join(currentVideoPath, r'{}-{}.flv'.format(title, num)),
+                                           reporthook=Schedule_cmd)  # 写成mp4也行  title + '-' + num + '.flv'
+            else:
+                urllib.request.urlretrieve(url=i, filename=os.path.join(currentVideoPath, r'{}.flv'.format(title)),
+                                           reporthook=Schedule_cmd)  # 写成mp4也行  title + '-' + num + '.flv'
+        except:
+            print('[下载P11段视频失败]:' + title)
         num += 1
 
 
