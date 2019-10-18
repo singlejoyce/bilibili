@@ -9,7 +9,7 @@ from multiprocessing import Queue
 
 class BilibiliCrawler:
     def __init__(self, aid, qn, down_path):
-        # åˆå§‹åŒ–
+        # ³õÊ¼»¯
         self.down_path = os.path.join(down_path, aid)
         if not os.path.exists(down_path):
             os.mkdir(down_path)
@@ -36,21 +36,21 @@ class BilibiliCrawler:
         }
 
     def get_cid(self, url):
-        # è·å–AVä¸­æ‰€æœ‰çš„pé›†ä¿¡æ¯
+        # »ñÈ¡AVÖĞËùÓĞµÄp¼¯ĞÅÏ¢
         try:
-            print("%s: get_cidæ•°æ®è·å–ä¸­..." % (datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
+            print("%s: get_cidÊı¾İ»ñÈ¡ÖĞ..." % (datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
             data = requests.get(url, headers=self.headers1).json()
             detail_list = data['data']
             for detail in detail_list:
                 av_dict = dict(cid=detail['cid'], name=detail['part'], duration=detail['duration'], flv_down_url='')
                 self.resultList.append(av_dict)
         except:
-            print("pagelist è·å–å¤±è´¥")
+            print("pagelist »ñÈ¡Ê§°Ü")
 
     def get_flv_down_url(self):
-        # å¾—åˆ°å¯¹åº”çš„flvä¸‹è½½åœ°å€
+        # µÃµ½¶ÔÓ¦µÄflvÏÂÔØµØÖ·
         self.get_cid(self.cid_url.format(self.aid))
-        print("%s: av:%s get_flv_down_urlæ•°æ®è·å–ä¸­..." % (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), self.aid))
+        print("%s: av:%s get_flv_down_urlÊı¾İ»ñÈ¡ÖĞ..." % (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), self.aid))
         for i in range(len(self.resultList)):
             cid = self.resultList[i]['cid']
             duration = self.resultList[i]['duration']
@@ -66,18 +66,18 @@ class BilibiliCrawler:
         while True:
             per = queue.get()
             if self.percent != per:
-                # print('  [%s ä¸‹è½½è¿›åº¦]:%.1f%%' % (datetime.now().strftime("%Y%m%d %H:%M:%S"), per) + '\r')
-                print(' [%s ä¸‹è½½è¿›åº¦]: %s' % (datetime.now().strftime("%Y%m%d %H:%M:%S"), per) + '%\r')
+                # print('  [%s ÏÂÔØ½ø¶È]:%.1f%%' % (datetime.now().strftime("%Y%m%d %H:%M:%S"), per) + '\r')
+                print(' [%s ÏÂÔØ½ø¶È]: %s' % (datetime.now().strftime("%Y%m%d %H:%M:%S"), per) + '%\r')
                 self.percent = per
 
     def download(self, queue, url, filename='None.flv'):
-        # ä¸‹è½½
+        # ÏÂÔØ
         size = 0
         response = requests.get(url, headers=self.headers2, stream=True, verify=False)
         chunk_size = 1024
         content_size = int(response.headers['content-length'])
         if response.status_code == 200:
-            sys.stdout.write(' [æ–‡ä»¶å¤§å°]:%0.2f MB\n' % (content_size / chunk_size / 1024))
+            sys.stdout.write(' [ÎÄ¼ş´óĞ¡]:%0.2f MB\n' % (content_size / chunk_size / 1024))
             filename = os.path.join(self.down_path, filename)
             with open(filename, 'wb') as file:
                 for data in response.iter_content(chunk_size=chunk_size):
@@ -88,10 +88,10 @@ class BilibiliCrawler:
                     per = "%.2f%%" % (size / content_size * 100)
                     queue.put(per)
         else:
-            print('%s ä¸‹è½½å‡ºé”™.' % datetime.now().strftime("%Y%m%d %H:%M:%S"))
+            print('%s ÏÂÔØ³ö´í.' % datetime.now().strftime("%Y%m%d %H:%M:%S"))
 
     def startDownload(self, data):
-        # çˆ¶è¿›ç¨‹åˆ›å»ºmy_queueï¼Œå¹¶ä¼ ç»™å„ä¸ªå­è¿›ç¨‹ï¼š
+        # ¸¸½ø³Ì´´½¨my_queue£¬²¢´«¸ø¸÷¸ö×Ó½ø³Ì£º
         my_queue = Queue()
         down_url = data['flv_down_url']
         if data['name'] != '':
@@ -100,36 +100,36 @@ class BilibiliCrawler:
         else:
             p1 = multiprocessing.Process(target=self.download, args=(my_queue, down_url))
         p2 = multiprocessing.Process(target=self.show_progress, args=(my_queue,))
-        # å¯åŠ¨å­è¿›ç¨‹p1ï¼Œå¼€å§‹ä¸‹è½½:
+        # Æô¶¯×Ó½ø³Ìp1£¬¿ªÊ¼ÏÂÔØ:
         p1.start()
-        # å¯åŠ¨å­è¿›ç¨‹p2ï¼Œå¼€å§‹æ‰“å°ä¸‹è½½è¿›åº¦:
+        # Æô¶¯×Ó½ø³Ìp2£¬¿ªÊ¼´òÓ¡ÏÂÔØ½ø¶È:
         p2.start()
-        # ç­‰å¾…p1ç»“æŸ:
+        # µÈ´ıp1½áÊø:
         p1.join()
-        # p2è¿›ç¨‹é‡Œæ˜¯æ­»å¾ªç¯ï¼Œæ— æ³•ç­‰å¾…å…¶ç»“æŸï¼Œåªèƒ½å¼ºè¡Œç»ˆæ­¢:
+        # p2½ø³ÌÀïÊÇËÀÑ­»·£¬ÎŞ·¨µÈ´ıÆä½áÊø£¬Ö»ÄÜÇ¿ĞĞÖÕÖ¹:
         p2.terminate()
 
-    # ä¸­æ–‡å†™å…¥jsonï¼Œä½†jsonæ–‡ä»¶ä¸­æ˜¾ç¤º"\u6731\u5fb7\u57f9",ä¸æ˜¯ä¸­æ–‡ã€‚
-    # è§£å†³æ–¹æ³•ï¼šåŠ å…¥ensure_ascii = False
-    # å½“ç›®æ ‡jsonæ–‡ä»¶å†…å®¹ä¸ºç©ºæ—¶ï¼Œå‡ºç°json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-    # è§£å†³æ–¹æ³•ï¼šæ–°å¢ä¸€ä¸ªå¼‚å¸¸
+    # ÖĞÎÄĞ´Èëjson£¬µ«jsonÎÄ¼şÖĞÏÔÊ¾"\u6731\u5fb7\u57f9",²»ÊÇÖĞÎÄ¡£
+    # ½â¾ö·½·¨£º¼ÓÈëensure_ascii = False
+    # µ±Ä¿±êjsonÎÄ¼şÄÚÈİÎª¿ÕÊ±£¬³öÏÖjson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+    # ½â¾ö·½·¨£ºĞÂÔöÒ»¸öÒì³£
     def saveJsonFile(self, source, file_path):
-        print("%s: jsonæ–‡ä»¶å†™å…¥ä¸­..." % datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+        print("%s: jsonÎÄ¼şĞ´ÈëÖĞ..." % datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
         try:
             with open(file_path, 'w', encoding='utf-8') as f_obj:
                 json.dump(source, f_obj, ensure_ascii=False, indent=4)
         except json.decoder.JSONDecodeError:
-            print("jsonæ–‡ä»¶å†…å®¹ä¸ºç©º.")
-        print("%s: jsonæ–‡ä»¶å†™å…¥å®Œæˆ." % datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+            print("jsonÎÄ¼şÄÚÈİÎª¿Õ.")
+        print("%s: jsonÎÄ¼şĞ´ÈëÍê³É." % datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 
     def start(self):
-        # æŠŠä¸Šä¸ªavçš„ç»“æœä¿¡æ¯åˆ—è¡¨æ¸…é™¤
+        # °ÑÉÏ¸öavµÄ½á¹ûĞÅÏ¢ÁĞ±íÇå³ı
         self.resultList.clear()
-        # è·å–è§†é¢‘ä¸‹è½½åœ°å€
+        # »ñÈ¡ÊÓÆµÏÂÔØµØÖ·
         self.get_flv_down_url()
-        # ç»“æœå¯¼å‡ºåˆ°å¯¹åº”çš„jsonæ–‡ä»¶ä¸­
+        # ½á¹ûµ¼³öµ½¶ÔÓ¦µÄjsonÎÄ¼şÖĞ
         self.saveJsonFile(self.resultList, self.down_path + "\\result.json")
-        # å¼€å§‹ä¸‹è½½
+        # ¿ªÊ¼ÏÂÔØ
         for data in self.resultList:
             self.startDownload(data)
 
@@ -141,4 +141,3 @@ if __name__ == '__main__':
     for i in avlist:
         bilibili = BilibiliCrawler(i, 80, downpath)
         bilibili.start()
-
