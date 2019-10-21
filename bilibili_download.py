@@ -4,6 +4,7 @@
 import json
 from datetime import datetime
 
+import aiohttp
 from tqdm import tqdm
 
 __author__ = 'Henry'
@@ -89,8 +90,19 @@ def Schedule_cmd(blocknum, blocksize, totalsize):
     print(percent_str.ljust(8, ' ') + speed_str + totalsize_str)
 
 
-def download_from_url(url, file):
-    response = requests.get(url, stream=True)
+def download_from_url(url, file, start_url):
+    headers = {'host': url.split('/')[2],
+               'Accept': '*/*',
+               'Accept-Language': 'en-US,en;q=0.5',
+               'Origin': 'https://www.bilibili.com',
+               'Accept-Encoding': 'gzip, deflate, br',
+               'Connection': 'keep-alive',
+               'Referer': start_url,
+               'Range': 'bytes=0-',
+               'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                             'Chrome/70.0.3538.25 Safari/537.36 Core/1.70.3722.400 QQBrowser/10.5.3751.400',
+               'Cookie': 'SESSDATA = 0da81169%2C1571985072%2Cae38dc91;'}
+    response = requests.get(url, headers=headers, stream=True, verify=False)
     file_size = int(response.headers['content-length'])
     if os.path.exists(file):
         first_byte = os.path.getsize(file)
@@ -98,8 +110,8 @@ def download_from_url(url, file):
         first_byte = 0
     if first_byte >= file_size:
         return file_size
-    headers = {"Range": f"bytes={first_byte}-{first_byte}"}
-    pbar = tqdm(total=file_size, initial=first_byte, unit='8',
+    headers['Range'] = f"bytes={first_byte}-{file_size}"
+    pbar = tqdm(total=file_size, initial=first_byte, unit='B',
                 unit_scale=True, desc=file)
     req = requests.get(url, headers=headers, stream=True)
     with (open(file, 'ab')) as f:
@@ -109,6 +121,51 @@ def download_from_url(url, file):
                 pbar.update(1024)
     pbar.close()
     return file_size
+
+
+async def fetch(session, url, dst, pbar=None, headers=None):
+    if headers:
+        async with session.get(url, headers=headers) as req:
+            with(open(dst, 'ab')) as f:
+                while True:
+                    chunk = await req.content.read(1024)
+                    if not chunk:
+                        break
+                    f.write(chunk)
+                    pbar.update(1024)
+            pbar.close()
+    else:
+        async with session.get(url) as req:
+            return req
+
+
+async def async_download_from_url(url, file, start_url):
+    """异步"""
+    headers = {'host': url.split('/')[2],
+               'Accept': '*/*',
+               'Accept-Language': 'en-US,en;q=0.5',
+               'Origin': 'https://www.bilibili.com',
+               'Accept-Encoding': 'gzip, deflate, br',
+               'Connection': 'keep-alive',
+               'Referer': start_url,
+               'Range': 'bytes=0-',
+               'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                             'Chrome/70.0.3538.25 Safari/537.36 Core/1.70.3722.400 QQBrowser/10.5.3751.400',
+               'Cookie': 'SESSDATA = 0da81169%2C1571985072%2Cae38dc91;'}
+    async with aiohttp.TCPConnector(limit=300, force_close=True, enable_cleanup_closed=True) as tc:
+        async with aiohttp.ClientSession(connector=tc) as session:
+            req = await fetch(session, url, file)
+            file_size = int(req.header['content-length'])
+            if os.path.exists(file):
+                first_byte = os.path.getsize(file)
+            else:
+                first_byte = 0
+            if first_byte >= file_size:
+                return file_size
+            headers['Range'] = f"bytes={first_byte}-{file_size}"
+            pbar = tqdm(total=file_size, initial=first_byte, unit='B',
+                        unit_scale=True, desc=file)
+            await fetch(session, url, file, pbar=pbar, headers=headers)
 
 
 # 下载视频
@@ -136,20 +193,35 @@ def down_video(video_url, title, start_url, page, savepath):
     except:
         print('[视频下载失败]:' + title)
 
-    # 中文写入json，但json文件中显示"\u6731\u5fb7\u57f9",不是中文。
-    # 解决方法：加入ensure_ascii = False
-    # 当目标json文件内容为空时，出现json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-    # 解决方法：新增一个异常
-    def saveJsonFile(self, source, file_path):
-        if os.path.exists(file_path):
-            os.remove(file_path)
-        print("%s: json文件写入中..." % datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-        try:
-            with open(file_path, 'w', encoding='utf-8') as f_obj:
-                json.dump(source, f_obj, ensure_ascii=False, indent=4)
-        except json.decoder.JSONDecodeError:
-            print("json文件内容为空.")
-        print("%s: json文件写入完成." % datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+
+# 中文写入json，但json文件中显示"\u6731\u5fb7\u57f9",不是中文。
+# 解决方法：加入ensure_ascii = False
+# 当目标json文件内容为空时，出现json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+# 解决方法：新增一个异常
+def saveJsonFile(self, source, file_path):
+    if os.path.exists(file_path):
+        os.remove(file_path)
+    print("%s: json文件写入中..." % datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    try:
+        with open(file_path, 'w', encoding='utf-8') as f_obj:
+            json.dump(source, f_obj, ensure_ascii=False, indent=4)
+    except json.decoder.JSONDecodeError:
+        print("json文件内容为空.")
+    print("%s: json文件写入完成." % datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+
+
+def format_title(title):
+    """针对39031994这个aid的title进行特殊处理"""
+    name = re.split(r'(\W*[\u4e00-\u9fa5])', title.replace(' ', ''))
+    new1 = str(name[0].split('.')[0])
+    new2 = str(name[0].split('.')[1])
+    if len(new1) == 1:
+        new1 = '0' + new1
+    if len(new2) == 1:
+        new2 = '0' + new2
+    name[0] = new1 + '.' + new2
+    new_name = ''.join(name)
+    return new_name
 
 
 if __name__ == '__main__':
@@ -200,7 +272,8 @@ if __name__ == '__main__':
     for item in cid_list:
         cid = str(item['cid'])
         title = item['part']
-        title = re.sub(r'[/\\:*?"<>|]', '', title.replace(' ', ''))  # 替换为空的
+        # title = re.sub(r'[/\\:*?"<>|]', '', title.replace(' ', ''))  # 替换为空的
+        title = format_title(title)
         # 秒数转成时分秒
         m, s = divmod(item['duration'], 60)
         h, m = divmod(m, 60)
@@ -219,7 +292,8 @@ if __name__ == '__main__':
 
         start_time2 = time.time()
         filename = os.path.join(down_video_path, r'{}.flv'.format(title))
-        download_from_url(downurl, filename)
+        download_from_url(downurl, filename, start_url)
+        # async_download_from_url(downurl, filename, start_url)
         # down_video(downurl, title, start_url, page, filename)
         print('[视频：%s]下载耗时%.2f秒,约%.2f分钟' % (title, time.time() - start_time2, int(time.time() - start_time2) / 60))
 
@@ -231,3 +305,5 @@ if __name__ == '__main__':
 
         # 分P视频下载测试: https://www.bilibili.com/video/av19516333/
         # 50044420
+        # 34904005
+        # 39031994

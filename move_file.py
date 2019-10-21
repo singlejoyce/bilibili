@@ -2,6 +2,9 @@ import os
 import shutil
 from os.path import join, getsize
 import re
+import aiohttp
+
+from bilibili_download import download_from_url
 
 
 def move(path, newpath, file_type):
@@ -46,13 +49,13 @@ def size_format(size):
     if size < 1000:
         return '%i' % size + 'size'
     elif 1000 <= size < 1000000:
-        return '%.1f' % float(size/1000) + 'KB'
+        return '%.1f' % float(size / 1000) + 'KB'
     elif 1000000 <= size < 1000000000:
-        return '%.1f' % float(size/1000000) + 'MB'
+        return '%.1f' % float(size / 1000000) + 'MB'
     elif 1000000000 <= size < 1000000000000:
-        return '%.1f' % float(size/1000000000) + 'GB'
+        return '%.1f' % float(size / 1000000000) + 'GB'
     elif 1000000000000 <= size:
-        return '%.1f' % float(size/1000000000000) + 'TB'
+        return '%.1f' % float(size / 1000000000000) + 'TB'
 
 
 new_path = 'D:\\bilibili_video\\test'
@@ -60,8 +63,7 @@ old_path = 'D:\\bilibili_video\\39031994'
 old_path2 = 'D:\\bilibili_video\\34904005'
 
 ftype = '.flv'
+
+
 # move(old_path, new_path, ftype)
 # print(getfilesize(old_path2))
-
-
-
