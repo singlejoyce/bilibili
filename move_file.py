@@ -4,8 +4,6 @@ from os.path import join, getsize
 import re
 import aiohttp
 
-from bilibili_download import download_from_url
-
 
 def move(path, newpath, file_type):
     for root, dirs, files in os.walk(path):
