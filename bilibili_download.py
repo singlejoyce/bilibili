@@ -91,6 +91,7 @@ def get_video_url(cid, url, quality):
         'Referer': url,  # 注意加上referer
         'User-Agent': random.choice(my_headers),
     }
+    mylogger.info('[get_video_url] url_api={}'.format(url_api))
     res = requests.get(url_api, headers=headers).json()
     video_list = []
     video_size_list = []
@@ -183,7 +184,7 @@ def concat_video(file_list, video_path):
     mylogger.info('[concat_video] start...')
     for file in file_list:
         current_video_path = os.path.join(video_path, file)
-        mylogger.info('[concat_video] 视频%s合并中...' % file)
+        mylogger.info('[concat_video] 视频{}合并中...'.format(file))
         # ！！！路径是反斜杠ffmepg合并时会报错 returned non-zero exit status 1.
         temp_file_path = os.path.join(current_video_path, 'filelist.txt').replace('\\', '/')
         merge_file_path = os.path.join(current_video_path, r'{}.mp4'.format(file)).replace('\\', '/')
@@ -228,7 +229,7 @@ def do_prepare(inputstart, inputqn, aid):
     result_list = []
     # 开始获取视频信息
     start_url = 'https://api.bilibili.com/x/web-interface/view?aid=' + aid
-    mylogger.info('[do_prepare] start_url=%s' % start_url)
+    mylogger.info('[do_prepare] start_url={}'.format(start_url))
     qn = inputqn
     # 随机选择一个Header伪装成浏览器
     headers = {'User-Agent': random.choice(my_headers)}
@@ -311,7 +312,6 @@ if __name__ == '__main__':
     # start = 'https://www.bilibili.com/video/av16919357'
     qn = 80
     for key, value in av_lists.items():
-        mylogger.info(key, value)
         if value.isdigit():
             # 如果输入的是av号
             # 获取cid的api, 传入aid即可
