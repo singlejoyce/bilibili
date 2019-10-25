@@ -91,6 +91,7 @@ def get_video_url(cid, url, quality):
         'Referer': url,  # 注意加上referer
         'User-Agent': random.choice(my_headers),
     }
+    mylogger.info('[get_video_url] url_api={}'.format(url_api))
     res = requests.get(url_api, headers=headers).json()
     video_list = []
     video_size_list = []
@@ -183,7 +184,7 @@ def concat_video(file_list, video_path):
     mylogger.info('[concat_video] start...')
     for file in file_list:
         current_video_path = os.path.join(video_path, file)
-        mylogger.info('[concat_video] 视频%s合并中...' % file)
+        mylogger.info('[concat_video] 视频{}合并中...'.format(file))
         # ！！！路径是反斜杠ffmepg合并时会报错 returned non-zero exit status 1.
         temp_file_path = os.path.join(current_video_path, 'filelist.txt').replace('\\', '/')
         merge_file_path = os.path.join(current_video_path, r'{}.mp4'.format(file)).replace('\\', '/')
@@ -234,7 +235,7 @@ def do_prepare(inputstart, inputqn, aid):
     result_list = []
     # 开始获取视频信息
     start_url = 'https://api.bilibili.com/x/web-interface/view?aid=' + aid
-    mylogger.info('[do_prepare] start_url=%s' % start_url)
+    mylogger.info('[do_prepare] start_url={}'.format(start_url))
     qn = inputqn
     # 随机选择一个Header伪装成浏览器
     headers = {'User-Agent': random.choice(my_headers)}
@@ -296,33 +297,45 @@ if __name__ == '__main__':
     32: 清晰480P (flv480)
     16: 流畅360P (flv360)
     """
-    start = input('请输入您要下载的B站av号或者视频链接地址:')
+    av_lists = {
+        # "樱兰高校单p分段": 'https://www.bilibili.com/video/av12084723',
+        "高等数学": 'https://www.bilibili.com/video/av19027609',
+        # "会长是女仆": 'https://www.bilibili.com/video/av16919357',
+        "【韩语学习】零基础入门": 'https://www.bilibili.com/video/av52118083',
+        "基础韩语语法60课——李思皎": 'https://www.bilibili.com/video/av50299922',
+        "【史努比】【英语中字】": 'https://www.bilibili.com/video/av12022791',
+        "【哆啦A梦】美版机器猫第一季26集合集【720P】": 'https://www.bilibili.com/video/av3343014',
+        "【黑客基础】CMD命令/DOS命令学习": 'https://www.bilibili.com/video/av66315335',
+        "【黑客基础】Windows/Powershell脚本学习": 'https://www.bilibili.com/video/av66327436',
+        "144集英文动画童话故事高清合集": 'https://www.bilibili.com/video/av46525094',
+        "15分钟复习完《综合素质》-2019年教师资格考试": 'https://www.bilibili.com/video/av68982183',
+        "10分钟学会复习《教育知识与能力》": 'https://www.bilibili.com/video/av69717992',
+        # "【650+】跟瑞秋老师学美语 | 316集起+英文字幕": 'https://www.bilibili.com/video/av53289663',
+    }
+
+    # start = input('请输入您要下载的B站av号或者视频链接地址:')
     # qn = input('请输入您要下载视频的清晰度,例：80(1080p:80;720p:64;480p:32;360p:16):')
     # start = 'https://www.bilibili.com/video/av16919357'
     qn = 80
-    if start.isdigit():
-        # 如果输入的是av号
-        # 获取cid的api, 传入aid即可
-        aid = start
-    else:
-        # 如果输入的是url (eg: https://www.bilibili.com/video/av46958874/)
-        aid = re.search(r'/av(\d+)/*', start).group(1)
+    for key, value in av_lists.items():
+        if value.isdigit():
+            # 如果输入的是av号
+            # 获取cid的api, 传入aid即可
+            aid = value
+        else:
+            # 如果输入的是url (eg: https://www.bilibili.com/video/av46958874/)
+            aid = re.search(r'/av(\d+)/*', value).group(1)
 
-    # 创建文件夹,存放下载的视频
-    down_video_path = os.path.join("d:\\", 'bilibili_video', aid)
-    if not os.path.exists(down_video_path):
-        os.makedirs(down_video_path)
+        # 创建文件夹,存放下载的视频
+        down_video_path = os.path.join("d:\\", 'bilibili_video', aid)
+        if not os.path.exists(down_video_path):
+            os.makedirs(down_video_path)
 
-    results, page_list = do_prepare(start, qn, aid)
-    start_download(results, down_video_path)
-    concat_video(page_list, down_video_path)
+        results, page_list = do_prepare(value, qn, aid)
+        start_download(results, down_video_path)
+        concat_video(page_list, down_video_path)
 
     # 如果是windows系统，下载完成后打开下载目录
-    if sys.platform.startswith('win'):
-        os.startfile(down_video_path)
+    # if sys.platform.startswith('win'):
+    #     os.startfile(down_video_path)
 
-# 樱兰高校单p分段： https://www.bilibili.com/video/av12084723/
-# 会长是女仆：https://www.bilibili.com/video/av16919357
-# 韩语学习：https://www.bilibili.com/video/av52118083
-# 高等数学：https://www.bilibili.com/video/av19027609
-# 基础韩语语法60课——李思皎：https://www.bilibili.com/video/av50299922
