@@ -202,24 +202,30 @@ def concat_video(file_list, video_path):
 
 def start_download(down_list, down_path):
     mylogger.info('[start_download] start......')
+    tasks = []
     for result in down_list:
         down_url_list = result['down_url_list']
         page = result['page']
         title = result['pname']
         purl = result['purl']
-        # 单线程单个下载（支持断点续传）
+
+        # 下载方式:asyncio和aiohttp模块异步协程下载（支持断点续传）
         if len(down_url_list) > 1:
-            # 如果分P视频是多段视频，视频下载目录以单P的文件夹方式存放
             down_p_video_path = os.path.join(down_path, page)
             if not os.path.exists(down_p_video_path):
                 os.makedirs(down_p_video_path)
             for i in range(len(down_url_list)):
-                file_dir = os.path.join(down_p_video_path, r'{}_{:0>3}.flv'.format(title, i))
-                download_from_url(down_url_list[i], file_dir, purl)
+                filename = os.path.join(down_p_video_path, r'{}_{:0>3}.flv'.format(title, i))
+                task = asyncio.ensure_future(async_download_from_url(down_url_list[i], filename, purl))
+                tasks.append(task)
         else:
-            # 如果分P视频是单个视频，视频下载目录直接存放在下载目录
-            download_from_url(down_url_list[0], os.path.join(down_path, r'{}.flv'.format(title)), purl)
+            filename = os.path.join(down_video_path, r'{}.flv'.format(title))
+            task = asyncio.ensure_future(async_download_from_url(down_url_list[0], filename, purl))
+            tasks.append(task)
 
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(asyncio.wait(tasks))
+    loop.close()
     mylogger.info('[start_download] end!')
 
 
@@ -290,46 +296,33 @@ if __name__ == '__main__':
     32: 清晰480P (flv480)
     16: 流畅360P (flv360)
     """
-    av_lists = {
-        # "樱兰高校单p分段": 'https://www.bilibili.com/video/av12084723',
-        "高等数学": 'https://www.bilibili.com/video/av19027609',
-        # "会长是女仆": 'https://www.bilibili.com/video/av16919357',
-        "【韩语学习】零基础入门": 'https://www.bilibili.com/video/av52118083',
-        "基础韩语语法60课——李思皎": 'https://www.bilibili.com/video/av50299922',
-        "【史努比】【英语中字】": 'https://www.bilibili.com/video/av12022791',
-        "【哆啦A梦】美版机器猫第一季26集合集【720P】": 'https://www.bilibili.com/video/av3343014',
-        "【黑客基础】CMD命令/DOS命令学习": 'https://www.bilibili.com/video/av66315335',
-        "【黑客基础】Windows/Powershell脚本学习": 'https://www.bilibili.com/video/av66327436',
-        "144集英文动画童话故事高清合集": 'https://www.bilibili.com/video/av46525094',
-        "15分钟复习完《综合素质》-2019年教师资格考试": 'https://www.bilibili.com/video/av68982183',
-        "10分钟学会复习《教育知识与能力》": 'https://www.bilibili.com/video/av69717992',
-        # "【650+】跟瑞秋老师学美语 | 316集起+英文字幕": 'https://www.bilibili.com/video/av53289663',
-    }
-
-    # start = input('请输入您要下载的B站av号或者视频链接地址:')
+    start = input('请输入您要下载的B站av号或者视频链接地址:')
     # qn = input('请输入您要下载视频的清晰度,例：80(1080p:80;720p:64;480p:32;360p:16):')
     # start = 'https://www.bilibili.com/video/av16919357'
     qn = 80
-    for key, value in av_lists.items():
-        mylogger.info(key, value)
-        if value.isdigit():
-            # 如果输入的是av号
-            # 获取cid的api, 传入aid即可
-            aid = value
-        else:
-            # 如果输入的是url (eg: https://www.bilibili.com/video/av46958874/)
-            aid = re.search(r'/av(\d+)/*', value).group(1)
+    if start.isdigit():
+        # 如果输入的是av号
+        # 获取cid的api, 传入aid即可
+        aid = start
+    else:
+        # 如果输入的是url (eg: https://www.bilibili.com/video/av46958874/)
+        aid = re.search(r'/av(\d+)/*', start).group(1)
 
-        # 创建文件夹,存放下载的视频
-        down_video_path = os.path.join("d:\\", 'bilibili_video', aid)
-        if not os.path.exists(down_video_path):
-            os.makedirs(down_video_path)
+    # 创建文件夹,存放下载的视频
+    down_video_path = os.path.join("d:\\", 'bilibili_video', aid)
+    if not os.path.exists(down_video_path):
+        os.makedirs(down_video_path)
 
-        results, page_list = do_prepare(value, qn, aid)
-        start_download(results, down_video_path)
-        concat_video(page_list, down_video_path)
+    results, page_list = do_prepare(start, qn, aid)
+    start_download(results, down_video_path)
+    concat_video(page_list, down_video_path)
 
     # 如果是windows系统，下载完成后打开下载目录
-    # if sys.platform.startswith('win'):
-    #     os.startfile(down_video_path)
+    if sys.platform.startswith('win'):
+        os.startfile(down_video_path)
 
+# 樱兰高校单p分段： https://www.bilibili.com/video/av12084723/
+# 会长是女仆：https://www.bilibili.com/video/av16919357
+# 韩语学习：https://www.bilibili.com/video/av52118083
+# 高等数学：https://www.bilibili.com/video/av19027609
+# 基础韩语语法60课——李思皎：https://www.bilibili.com/video/av50299922

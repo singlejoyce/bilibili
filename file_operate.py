@@ -3,6 +3,9 @@ import shutil
 from os.path import join, getsize
 import re
 import aiohttp
+import subprocess
+
+import sys
 
 
 def move(path, newpath, file_type):
@@ -56,12 +59,33 @@ def size_format(size):
         return '%.1f' % float(size / 1000000000000) + 'TB'
 
 
-new_path = 'D:\\bilibili_video\\test'
-old_path = 'D:\\bilibili_video\\39031994'
-old_path2 = 'D:\\bilibili_video\\34904005'
-
-ftype = '.flv'
-
-
+# new_path = 'D:\\bilibili_video\\test'
+# old_path = 'D:\\bilibili_video\\39031994'
+# old_path2 = 'D:\\bilibili_video\\34904005'
+# ftype = '.flv'
 # move(old_path, new_path, ftype)
 # print(getfilesize(old_path2))
+
+# format操作示例
+# print('{:0>3}.flv'.format(2))
+# # 002.flv
+# print('{:08.4f}'.format(6.4))
+# # 006.4000
+# print('{:.8f}'.format(6.4))
+# # 6.40000000
+# print('{:0>8}'.format('189'))
+# # 00000189
+# print('{:_>8}'.format('189'))
+# # _____189
+import locale
+ffmpeg = 'D:/ffmpeg-20191022-0b8956b-win64-static/bin/ffmpeg'
+dir1 = 'd:/bilibili_video/19027609/001.实数集/filelist.txt'
+dir2 = 'd:/bilibili_video/19027609/001.实数集/001.实数集.mp4'
+cmd = [ffmpeg, '-y', '-f', 'concat', '-safe', '0', '-i', dir1, '-c', 'copy', dir2]
+# proc = subprocess.check_call(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+cmd2 = "{} -y -f concat -safe 0 -i {} -c copy {}".format(ffmpeg, dir1, dir2)
+print(cmd2)
+import locale
+cmd3 = cmd2.encode(locale.getdefaultlocale()[1])
+print(cmd3)
+subprocess.Popen(cmd3, shell=True)
