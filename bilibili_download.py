@@ -180,14 +180,14 @@ async def async_download_from_url(down_url, file, ref_url):
 
 
 # 合并视频
-def concat_video(file_list, video_path):
+def concat_video(file_list, video_path, pname_list):
     mylogger.info('[concat_video] start...')
-    for file in file_list:
-        current_video_path = os.path.join(video_path, file)
-        mylogger.info('[concat_video] 视频{}合并中...'.format(file))
+    for i in range(len(file_list)):
+        current_video_path = os.path.join(video_path, file_list[i])
+        mylogger.info('[concat_video] 视频{}合并中...'.format(file_list[i]))
         # ！！！路径是反斜杠ffmepg合并时会报错 returned non-zero exit status 1.
         temp_file_path = os.path.join(current_video_path, 'filelist.txt').replace('\\', '/')
-        merge_file_path = os.path.join(current_video_path, r'{}.mp4'.format(file)).replace('\\', '/')
+        merge_file_path = os.path.join(current_video_path, r'{}.mp4'.format(pname_list[i])).replace('\\', '/')
         try:
             with open(temp_file_path, 'w') as f:
                 for file_name in os.listdir(current_video_path):
@@ -248,12 +248,12 @@ def do_prepare(inputstart, inputqn, aid):
         # 如果p不存在就是全集下载
         cid_list = data['pages']
 
-    page_list = []
     for item in cid_list:
         cid = str(item['cid'])
         # 处理视频名称
         pname = item['part']
         pname = re.sub(r'[/\\:*?"<>|]', '', pname.replace(' ', ''))  # 替换为空的
+
         # 秒数转成时分秒
         m, s = divmod(item['duration'], 60)
         h, m = divmod(m, 60)
@@ -269,14 +269,13 @@ def do_prepare(inputstart, inputqn, aid):
         page = 'P{:0>3}'.format(item['page'])
         video_dict = dict(cid=cid, pname=pname, page=page, size=format_size(total_size),
                           duration=duration, purl=purl, down_url_list=down_url_list)
-        page_list.append(page)
         result_list.append(video_dict)
 
         mylogger.info('[{}视频的cid]:{}\n[{}视频的名称]:{}\n[{}视频的大小]:{}\n[{}视频的时长]:{}\n[{}下载地址]:{}'.format
                       (page, cid, page, pname, page, format_size(total_size), page, duration, page, down_url_list))
 
     mylogger.info('[do_prepare] end!')
-    return result_list, page_list
+    return result_list
 
 
 if __name__ == '__main__':
@@ -325,9 +324,15 @@ if __name__ == '__main__':
         if not os.path.exists(down_video_path):
             os.makedirs(down_video_path)
 
-        results, page_list = do_prepare(value, qn, aid)
-        start_download(results, down_video_path)
-        concat_video(page_list, down_video_path)
+        results = do_prepare(value, qn, aid)
+        # start_download(results, down_video_path)
+
+        page_list = []
+        pname_list = []
+        for result in results:
+            page_list.append(result['page'])
+            pname_list.append(result['pname'])
+        concat_video(page_list, down_video_path, pname_list)
 
     # 如果是windows系统，下载完成后打开下载目录
     # if sys.platform.startswith('win'):
