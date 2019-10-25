@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225ba202-2075-437b-8b75-f991a0f96bba" name="默认的" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Logs/201910251636.log" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bilibili_download.py" afterPath="$PROJECT_DIR$/bilibili_download.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,8 +41,8 @@
       <file leaf-file-name="bilibili_download.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bilibili_download.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3489">
-              <caret line="194" column="62" lean-forward="true" selection-start-line="194" selection-start-column="62" selection-end-line="194" selection-end-column="62" />
+            <state relative-caret-position="129">
+              <caret line="328" column="0" lean-forward="true" selection-start-line="328" selection-start-column="0" selection-end-line="328" selection-end-column="0" />
               <folding>
                 <element signature="e#44#58#0" expanded="true" />
               </folding>
@@ -697,8 +696,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bilibili_download.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3489">
-          <caret line="194" column="62" lean-forward="true" selection-start-line="194" selection-start-column="62" selection-end-line="194" selection-end-column="62" />
+        <state relative-caret-position="129">
+          <caret line="328" column="0" lean-forward="true" selection-start-line="328" selection-start-column="0" selection-end-line="328" selection-end-column="0" />
           <folding>
             <element signature="e#44#58#0" expanded="true" />
           </folding>

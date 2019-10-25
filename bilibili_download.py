@@ -325,7 +325,7 @@ if __name__ == '__main__':
             os.makedirs(down_video_path)
 
         results = do_prepare(value, qn, aid)
-        # start_download(results, down_video_path)
+        start_download(results, down_video_path)
 
         page_list = []
         pname_list = []
