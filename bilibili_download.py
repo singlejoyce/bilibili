@@ -2,18 +2,22 @@
 # -*- coding:utf-8 -*-
 
 import hashlib
+import json
 import random
-from datetime import datetime
 import os
 import sys
 import re
 import subprocess
+
+import psutil
 from moviepy.editor import *
 import asyncio
 import aiohttp
 import requests
 import time
 import urllib.request
+
+from os.path import getsize, join
 from tqdm import tqdm
 
 from logger import Logger
@@ -21,8 +25,7 @@ from logger import Logger
 __author__ = 'Joyce'
 
 # ffmpeg路径配置
-ffmpeg = 'D:/ffmpeg-20191022-0b8956b-win64-static/bin/ffmpeg'
-
+ffmpeg = 'D:/ffmpeg-20191022-0b8956b-win64-static/bin/ffmpeg.exe'
 
 my_headers = [
     "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36",
@@ -70,7 +73,7 @@ proxies = {"http": "http://" + random.choice(proxy_list),
 
 def format_size(filesize):
     if filesize < 1000:
-        return '%i' % filesize + 'size'
+        return '%i' % filesize + 'KB'
     elif 1000 <= filesize < 1000000:
         return '%.1f' % float(filesize / 1000) + 'KB'
     elif 1000000 <= filesize < 1000000000:
@@ -91,7 +94,7 @@ def get_video_url(cid, url, quality):
         'Referer': url,  # 注意加上referer
         'User-Agent': random.choice(my_headers),
     }
-    mylogger.info('[get_video_url] url_api={}'.format(url_api))
+    # mylogger.info('[get_video_url] url_api={}'.format(url_api))
     res = requests.get(url_api, headers=headers).json()
     video_list = []
     video_size_list = []
@@ -102,35 +105,44 @@ def get_video_url(cid, url, quality):
 
 
 def download_from_url(down_url, file, ref_url):
-    headers = {'host': down_url.split('/')[2],
-               'Accept': '*/*',
-               'Accept-Language': 'en-US,en;q=0.5',
-               'Origin': 'https://www.bilibili.com',
-               'Accept-Encoding': 'gzip, deflate, br',
-               'Connection': 'keep-alive',
-               'Referer': ref_url,
-               'User-Agent': random.choice(my_headers),
-               'Cookie': 'SESSDATA = 0da81169%2C1571985072%2Cae38dc91;'}
+    headers = {
+        # 'host': down_url.split('/')[2],
+        'Accept': '*/*',
+        'Accept-Language': 'en-US,en;q=0.5',
+        'Origin': 'https://www.bilibili.com',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Connection': 'keep-alive',
+        'Referer': ref_url,
+        'User-Agent': random.choice(my_headers),
+        'Cookie': 'SESSDATA = 0da81169%2C1571985072%2Cae38dc91;'}
     try:
         response = requests.get(down_url, headers=headers, stream=True, verify=False)
         file_size = int(response.headers['content-length'])
         if os.path.exists(file):
             first_byte = os.path.getsize(file)
+            headers['Range'] = 'bytes=%d-' % first_byte
         else:
             first_byte = 0
         if first_byte >= file_size:
             return file_size
-        headers['Range'] = f"bytes={first_byte}-{file_size}"
+
         pbar = tqdm(total=file_size, initial=first_byte, unit='B',
                     unit_scale=True, desc=file)
         time.sleep(0.5)
         req = requests.get(down_url, headers=headers, stream=True, verify=False)
-        with (open(file, 'ab')) as f:
-            for chunk in req.iter_content(chunk_size=1024):
-                if chunk:
-                    f.write(chunk)
-                    pbar.update(1024)
-        pbar.close()
+        status_code = req.status_code
+        if status_code in [200, 206]:
+            with (open(file, 'ab')) as f:
+                for chunk in req.iter_content(chunk_size=1024):
+                    if chunk:
+                        f.write(chunk)
+                        f.flush()
+                        pbar.update(1024)
+            pbar.close()
+        elif status_code == 416:
+            mylogger.error("[download_from_url]%s 文件数据请求区间错误,status_code:%s" % (down_url, status_code))
+        else:
+            mylogger.error("[download_from_url]%s 链接有误,status_code:%s" % (down_url, status_code))
     except Exception as e:
         mylogger.error("[download_from_url] 下载异常:%s" % e)
 
@@ -179,37 +191,61 @@ async def async_download_from_url(down_url, file, ref_url):
             await fetch(session, down_url, file, pbar=pbar, headers=headers)
 
 
+def killProcess():
+    # 处理python程序在运行中出现的异常和错误
+    try:
+        # pids方法查看系统全部进程
+        pids = psutil.pids()
+        for pid in pids:
+            # Process方法查看单个进程
+            p = psutil.Process(pid)
+            # print('pid-%s,pname-%s' % (pid, p.name()))
+            # 进程名
+            if p.name() == 'ffmpeg.exe':
+                # 关闭任务 /f是强制执行，/im对应程序名
+                cmd = 'taskkill /f /im ffmpeg.exe  2>nul 1>null'
+                # python调用Shell脚本执行cmd命令
+                os.system(cmd)
+    except:
+        pass
+
+
 # 合并视频
-def concat_video(file_list, video_path, pname_list):
-    mylogger.info('[concat_video] start...')
-    for i in range(len(file_list)):
-        current_video_path = os.path.join(video_path, file_list[i])
-        mylogger.info('[concat_video] 视频{}合并中...'.format(file_list[i]))
-        # ！！！路径是反斜杠ffmepg合并时会报错 returned non-zero exit status 1.
-        temp_file_path = os.path.join(current_video_path, 'filelist.txt').replace('\\', '/')
-        merge_file_path = os.path.join(current_video_path, r'{}.mp4'.format(pname_list[i])).replace('\\', '/')
-        try:
-            with open(temp_file_path, 'w') as f:
-                for file_name in os.listdir(current_video_path):
-                    if file_name.endswith('.flv'):
-                        f.write("file  '" + file_name + "'\n")
-            # 使用ffmpeg进行多个视频合并过程中出现了“unsafe file name”错误，解决的办法是加个-safe 0 参数
-            cmd = [ffmpeg, '-y', '-f', 'concat', '-safe', '0', '-i', temp_file_path, '-c', 'copy', merge_file_path]
-            proc = subprocess.check_call(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-        except Exception as e:
-            raise Exception()
-    mylogger.info('[concat_video] end!')
+def concat_video(data, video_path):
+    current_video_path = os.path.join(video_path, data['page'])
+    mylogger.info('[concat_video] {}开始合并...'.format(data['page']))
+    # ！！！路径是反斜杠ffmepg合并时会报错 returned non-zero exit status 1.
+    temp_file_path = os.path.join(current_video_path, 'filelist.txt').replace('\\', '/')
+    merge_file_path = os.path.join(video_path, r'{}.mp4'.format(data['pname']).replace('\\', '/'))
+    try:
+        with open(temp_file_path, 'w') as f:
+            for file_name in os.listdir(current_video_path):
+                if file_name.endswith('.flv'):
+                    f.write("file  '" + file_name + "'\n")
+    except Exception as e:
+        # raise Exception()  # 触发异常后，后面的代码就不会再执行
+        mylogger.error(e)
+
+    try:
+        # 使用ffmpeg进行多个视频合并过程中出现了“unsafe file name”错误，解决的办法是加个-safe 0 参数
+        cmd = [ffmpeg, '-y', '-f', 'concat', '-safe', '0', '-i', temp_file_path, '-c', 'copy', merge_file_path]
+        proc = subprocess.check_call(cmd)
+        mylogger.info('[concat_video] returncode = {}, {} 合并完成.'.format(proc, data['page']))
+        killProcess()
+    except Exception as e:
+        # raise Exception()  # 触发异常后，后面的代码就不会再执行
+        mylogger.error(e)
 
 
 def start_download(down_list, down_path):
-    mylogger.info('[start_download] start......')
-    for result in down_list:
-        down_url_list = result['down_url_list']
-        page = result['page']
-        title = result['pname']
-        purl = result['purl']
+    for data in down_list:
+        down_url_list = data['down_url_list']
+        page = data['page']
+        title = data['pname']
+        purl = data['purl']
         # 单线程单个下载（支持断点续传）
         if len(down_url_list) > 1:
+            mylogger.info('[start_download] {} 是多段视频.'.format(title))
             # 如果分P视频是多段视频，视频下载目录以单P的文件夹方式存放
             down_p_video_path = os.path.join(down_path, page)
             if not os.path.exists(down_p_video_path):
@@ -219,13 +255,11 @@ def start_download(down_list, down_path):
                 download_from_url(down_url_list[i], file_dir, purl)
         else:
             # 如果分P视频是单个视频，视频下载目录直接存放在下载目录
+            mylogger.info('[start_download] {} 是单个视频.'.format(title))
             download_from_url(down_url_list[0], os.path.join(down_path, r'{}.flv'.format(title)), purl)
-
-    mylogger.info('[start_download] end!')
 
 
 def do_prepare(inputstart, inputqn, aid):
-    mylogger.info('[do_prepare] start......')
     result_list = []
     # 开始获取视频信息
     start_url = 'https://api.bilibili.com/x/web-interface/view?aid=' + aid
@@ -237,7 +271,7 @@ def do_prepare(inputstart, inputqn, aid):
     html = requests.get(start_url, headers=headers).json()
     data = html['data']
     atitle = re.sub(r'[/\\:*?"<>|]', '', data['title'].replace(' ', ''))
-    mylogger.info('[do_prepare] 视频的aid:{}\n[do_prepare] 视频的总标题:{}'.format(aid, atitle))
+    mylogger.info('[do_prepare] 视频的aid:{}   视频的标题:{}'.format(aid, atitle))
 
     cid_list = []
     if '?p=' in inputstart:
@@ -247,17 +281,20 @@ def do_prepare(inputstart, inputqn, aid):
     else:
         # 如果p不存在就是全集下载
         cid_list = data['pages']
+    mylogger.info('[do_prepare] 数据获取完成，开始格式化所需数据...')
 
     for item in cid_list:
         cid = str(item['cid'])
+
         # 处理视频名称
         pname = item['part']
-        pname = re.sub(r'[/\\:*?"<>|]', '', pname.replace(' ', ''))  # 替换为空的
+        pname = re.sub(r'[\/\\:*?"<>|,#%]', '', pname.replace(' ', ''))  # 替换为空的
 
         # 秒数转成时分秒
         m, s = divmod(item['duration'], 60)
         h, m = divmod(m, 60)
         duration = '{}:{}:{}'.format(h, m, s)
+
         # 获得视频的大小以及下载地址
         purl = start_url + "/?p=" + str(item['page'])
         down_url_list, size_list = get_video_url(cid, purl, qn)
@@ -268,14 +305,64 @@ def do_prepare(inputstart, inputqn, aid):
         # subprocess中的命令中不支持中文路径，所以视频文件夹路径暂时使用P001这种方式
         page = 'P{:0>3}'.format(item['page'])
         video_dict = dict(cid=cid, pname=pname, page=page, size=format_size(total_size),
-                          duration=duration, purl=purl, down_url_list=down_url_list)
+                          duration=duration, purl=purl, size_list=size_list, down_url_list=down_url_list)
         result_list.append(video_dict)
 
-        mylogger.info('[{}视频的cid]:{}\n[{}视频的名称]:{}\n[{}视频的大小]:{}\n[{}视频的时长]:{}\n[{}下载地址]:{}'.format
-                      (page, cid, page, pname, page, format_size(total_size), page, duration, page, down_url_list))
-
-    mylogger.info('[do_prepare] end!')
     return result_list
+
+
+def saveJsonFile(source, file_path):
+    mylogger.info("[saveJsonFile]")
+    try:
+        with open(file_path, 'w', encoding='utf-8') as f_obj:
+            json.dump(source, f_obj, ensure_ascii=False, indent=4)
+    except json.decoder.JSONDecodeError:
+        mylogger.error("json文件内容为空.")
+
+
+def readJsonFile(file_path):
+    mylogger.info("[readJsonFile]")
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f_obj:
+            data = json.load(f_obj)
+        return data
+    except json.decoder.JSONDecodeError:
+        mylogger.error("json文件内容为空.")
+
+
+def getfilesize(path):
+    sizelist = []
+    if os.path.isdir(path):
+        for root, dirs, files in os.walk(path):
+            for file in files:
+                if file.endswith('.flv'):
+                    sizelist.append(getsize(join(root, file)))
+            # file_dict = dict(zip(files, sizelist))
+            return sizelist
+    elif os.path.isfile(path):
+        sizelist.append(getsize(path))
+        return sizelist
+    else:
+        mylogger.error("[getfilesize]it's a special file(socket,FIFO,device file)")
+
+
+def check_video(data, video_path):
+    if len(data['down_url_list']) <= 1:
+        path = os.path.join(video_path, '{}.flv'.format(data['pname']))
+        local_file_sizelist = getfilesize(path)
+        cloud_file_sizelist = data['size_list']
+        if local_file_sizelist[0] < cloud_file_sizelist[0]:
+            mylogger.error('[check_video] {} 视频的大小异常，请检查确认！'.format(data['page']))
+        return False
+    else:
+        current_video_path = os.path.join(video_path, data['page'])
+        local_file_sizelist = getfilesize(current_video_path)
+        cloud_file_sizelist = data['size_list']
+        if local_file_sizelist != cloud_file_sizelist:
+            mylogger.error('[check_video] {} 分段视频的大小异常，先不合并请检查确认！'.format(data['page']))
+            return False
+        else:
+            return True
 
 
 if __name__ == '__main__':
@@ -291,18 +378,14 @@ if __name__ == '__main__':
     16: 流畅360P (flv360)
     """
     av_lists = {
-        # "樱兰高校单p分段": 'https://www.bilibili.com/video/av12084723',
-        "高等数学": 'https://www.bilibili.com/video/av19027609',
-        # "会长是女仆": 'https://www.bilibili.com/video/av16919357',
-        "【韩语学习】零基础入门": 'https://www.bilibili.com/video/av52118083',
-        "基础韩语语法60课——李思皎": 'https://www.bilibili.com/video/av50299922',
-        "【史努比】【英语中字】": 'https://www.bilibili.com/video/av12022791',
-        "【哆啦A梦】美版机器猫第一季26集合集【720P】": 'https://www.bilibili.com/video/av3343014',
-        "【黑客基础】CMD命令/DOS命令学习": 'https://www.bilibili.com/video/av66315335',
-        "【黑客基础】Windows/Powershell脚本学习": 'https://www.bilibili.com/video/av66327436',
+        # "高等数学": 'https://www.bilibili.com/video/av19027609',
+        # "【史努比】【英语中字】": 'https://www.bilibili.com/video/av12022791',
+        # "【哆啦A梦】美版机器猫第一季26集合集【720P】": 'https://www.bilibili.com/video/av3343014',
+        # "【黑客基础】CMD命令/DOS命令学习": 'https://www.bilibili.com/video/av66315335',
+        # "【黑客基础】Windows/Powershell脚本学习": 'https://www.bilibili.com/video/av66327436',
         "144集英文动画童话故事高清合集": 'https://www.bilibili.com/video/av46525094',
-        "15分钟复习完《综合素质》-2019年教师资格考试": 'https://www.bilibili.com/video/av68982183',
-        "10分钟学会复习《教育知识与能力》": 'https://www.bilibili.com/video/av69717992',
+        # "15分钟复习完《综合素质》-2019年教师资格考试": 'https://www.bilibili.com/video/av68982183',
+        # "10分钟学会复习《教育知识与能力》": 'https://www.bilibili.com/video/av69717992',
         # "【650+】跟瑞秋老师学美语 | 316集起+英文字幕": 'https://www.bilibili.com/video/av53289663',
     }
 
@@ -310,31 +393,29 @@ if __name__ == '__main__':
     # qn = input('请输入您要下载视频的清晰度,例：80(1080p:80;720p:64;480p:32;360p:16):')
     # start = 'https://www.bilibili.com/video/av16919357'
     qn = 80
-    for key, value in av_lists.items():
-        if value.isdigit():
+    for k, v in av_lists.items():
+        if v.isdigit():
             # 如果输入的是av号
             # 获取cid的api, 传入aid即可
-            aid = value
+            aid = v
         else:
             # 如果输入的是url (eg: https://www.bilibili.com/video/av46958874/)
-            aid = re.search(r'/av(\d+)/*', value).group(1)
+            aid = re.search(r'/av(\d+)/*', v).group(1)
 
         # 创建文件夹,存放下载的视频
         down_video_path = os.path.join("d:\\", 'bilibili_video', aid)
         if not os.path.exists(down_video_path):
             os.makedirs(down_video_path)
-
-        results = do_prepare(value, qn, aid)
+        results = do_prepare(v, qn, aid)
         start_download(results, down_video_path)
-
-        page_list = []
-        pname_list = []
-        for result in results:
-            page_list.append(result['page'])
-            pname_list.append(result['pname'])
-        concat_video(page_list, down_video_path, pname_list)
+        json_file_name = re.sub(r'[\/\\:*?"<>|,#%]', '', k.replace(' ', '')) + '-result.json'
+        json_file = os.path.join(down_video_path, json_file_name)
+        saveJsonFile(results, json_file)
+        # results = readJsonFile(json_file)
+        for i in results:
+            state = check_video(i, down_video_path)
+            # concat_video(i, down_video_path)
 
     # 如果是windows系统，下载完成后打开下载目录
     # if sys.platform.startswith('win'):
     #     os.startfile(down_video_path)
-

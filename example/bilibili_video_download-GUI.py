@@ -14,7 +14,6 @@ __author__ = 'Henry'
 
 import requests, time, hashlib, urllib.request, re, json
 import imageio
-imageio.plugins.ffmpeg.download()
 from moviepy.editor import *
 import os, sys, threading
 
@@ -118,7 +117,7 @@ def format_size(bytes):
 def down_video(video_list, title, start_url, page):
     num = 1
     print('[正在下载P{}段视频,请稍等...]:'.format(page) + title)
-    currentVideoPath = os.path.join(sys.path[0], 'bilibili_video', title)  # 当前目录作为下载目录
+    currentVideoPath = os.path.join("d:\\", 'bilibili_video', title)  # 当前目录作为下载目录
     for i in video_list:
         opener = urllib.request.build_opener()
         # 请求头
@@ -239,15 +238,15 @@ def do_prepare(inputStart,inputQuality):
         th.join()
     
     # 最后合并视频
-    combine_video(title_list)
+    # combine_video(title_list)
 
     end_time = time.time()  # 结束时间
     print('下载总耗时%.2f秒,约%.2f分钟' % (end_time - start_time, int(end_time - start_time) / 60))
 
     # 如果是windows系统，下载完成后打开下载目录
-    currentVideoPath = os.path.join(sys.path[0], 'bilibili_video')  # 当前目录作为下载目录
-    if (sys.platform.startswith('win')):
-        os.startfile(currentVideoPath)
+    # currentVideoPath = os.path.join(sys.path[0], 'bilibili_video')  # 当前目录作为下载目录
+    # if (sys.platform.startswith('win')):
+    #     os.startfile(currentVideoPath)
 
 
 

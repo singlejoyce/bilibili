@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225ba202-2075-437b-8b75-f991a0f96bba" name="默认的" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Logs/201910251711.log" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/qa.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/qa.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bilibili_download.py" afterPath="$PROJECT_DIR$/bilibili_download.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bilibili_download_v2.py" afterPath="$PROJECT_DIR$/bilibili_download_v2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/bilibili_video_download-GUI.py" afterPath="$PROJECT_DIR$/example/bilibili_video_download-GUI.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,24 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="bilibili_download_v2.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bilibili_download_v2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3491">
-              <caret line="192" column="12" lean-forward="false" selection-start-line="192" selection-start-column="12" selection-end-line="192" selection-end-column="12" />
-              <folding>
-                <element signature="e#44#58#0" expanded="true" />
-                <marker date="1571992819000" expanded="false" signature="44:282" ph="import ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="file_operate.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/file_operate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="89" column="11" lean-forward="false" selection-start-line="89" selection-start-column="11" selection-end-line="89" selection-end-column="11" />
+            <state relative-caret-position="135">
+              <caret line="26" column="15" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="15" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -41,8 +33,8 @@
       <file leaf-file-name="bilibili_download.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bilibili_download.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="328" column="0" lean-forward="true" selection-start-line="328" selection-start-column="0" selection-end-line="328" selection-end-column="0" />
+            <state relative-caret-position="-1566">
+              <caret line="167" column="46" lean-forward="true" selection-start-line="167" selection-start-column="46" selection-end-line="167" selection-end-column="46" />
               <folding>
                 <element signature="e#44#58#0" expanded="true" />
               </folding>
@@ -50,10 +42,32 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="bilibili_video_download-GUI.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/bilibili_video_download-GUI.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="122" column="13" lean-forward="true" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
+              <folding>
+                <element signature="e#246#302#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Python36/Lib/json/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="366" column="0" lean-forward="false" selection-start-line="366" selection-start-column="0" selection-end-line="366" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="logger.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/logger.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
+            <state relative-caret-position="783">
               <caret line="31" column="28" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="28" />
               <folding />
             </state>
@@ -63,7 +77,7 @@
       <file leaf-file-name="subprocess.py" pinned="false" current-in-tab="false">
         <entry file="file://C:/Python36/Lib/subprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
+            <state relative-caret-position="12420">
               <caret line="460" column="0" lean-forward="false" selection-start-line="460" selection-start-column="0" selection-end-line="460" selection-end-column="0" />
               <folding />
             </state>
@@ -81,8 +95,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>start_time</find>
-      <find>headers1</find>
       <find>self.qn</find>
       <find>currentVideoPath</find>
       <find>mv</find>
@@ -103,17 +115,20 @@
       <find>filename</find>
       <find>combine_video</find>
       <find>title</find>
-      <find>concat_video</find>
       <find>aid_title</find>
       <find>down_video_path</find>
       <find>print</find>
-      <find>mylogger</find>
       <find>info</find>
       <find>mylogger.info</find>
       <find>pname_list</find>
+      <find>file_list</find>
+      <find>e</find>
+      <find>concat_video</find>
+      <find>mylogger</find>
     </findStrings>
     <replaceStrings>
       <replace>html.parser</replace>
+      <replace>data</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -136,9 +151,9 @@
         <option value="$PROJECT_DIR$/test-aiohttp.py" />
         <option value="$PROJECT_DIR$/move_file.py" />
         <option value="$PROJECT_DIR$/example/bilibili_video_download_v3.py" />
-        <option value="$PROJECT_DIR$/example/bilibili_video_download-GUI.py" />
         <option value="$PROJECT_DIR$/file_operate.py" />
         <option value="$PROJECT_DIR$/bilibili_download_v2.py" />
+        <option value="$PROJECT_DIR$/example/bilibili_video_download-GUI.py" />
         <option value="$PROJECT_DIR$/bilibili_download.py" />
       </list>
     </option>
@@ -168,7 +183,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -176,10 +190,16 @@
               <item name="bilibili" type="b2602c69:ProjectViewProjectNode" />
               <item name="bilibili" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="bilibili" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bilibili" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -293,8 +313,8 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.bilibili_download" />
-        <item index="1" class="java.lang.String" itemvalue="Python.file_operate" />
-        <item index="2" class="java.lang.String" itemvalue="Python.bilibili_video_download-GUI" />
+        <item index="1" class="java.lang.String" itemvalue="Python.bilibili_video_download-GUI" />
+        <item index="2" class="java.lang.String" itemvalue="Python.file_operate" />
         <item index="3" class="java.lang.String" itemvalue="Python.bilibili_video_download_v3" />
         <item index="4" class="java.lang.String" itemvalue="Python.move_file" />
       </list>
@@ -326,15 +346,15 @@
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14109442" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14270386" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979977" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33215547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21908127" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979977" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1276824" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3533569" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22614841" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2343934" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -357,33 +377,30 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/bilibili_download.py</url>
-          <line>190</line>
-          <option name="timeStamp" value="58" />
+          <line>353</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/bilibili_download.py</url>
+          <line>334</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/bilibili_download.py</url>
+          <line>351</line>
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="59" />
+      <option name="time" value="66" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="self.resultList" />
-        <watch expression="dict(cid=cid, title=title, size=size, downurl=downurl)" />
-        <watch expression="response.status_code" language="Python" />
-        <watch expression="req.headers" language="Python" />
-        <watch expression="req.headers['content-length']" />
-        <watch expression="proc" />
-        <watch expression="os.listdir(path)" />
+        <watch expression="len(i['down_url_list'])" language="Python" />
+        <watch expression="i" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/example/bilibili_video_download-GUI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4536">
-          <caret line="169" column="92" lean-forward="true" selection-start-line="169" selection-start-column="69" selection-end-line="169" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bilibili_download.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7128">
@@ -543,7 +560,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -561,16 +577,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test-aiohttp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-37">
-          <caret line="13" column="56" lean-forward="true" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test-aiohttp.py" />
     <entry file="file://C:/Python36/Lib/site-packages/tqdm/std.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-12217">
@@ -578,27 +585,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/move_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/move_file.py" />
     <entry file="file://$PROJECT_DIR$/example/bilibili_video_download_v3-linux.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/bilibili_video_download-GUI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4375">
-          <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -606,7 +597,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
           <caret line="521" column="4" lean-forward="false" selection-start-line="521" selection-start-column="4" selection-end-line="521" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -620,16 +610,35 @@
     </entry>
     <entry file="file://C:/Python36/Lib/subprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
+        <state relative-caret-position="12420">
           <caret line="460" column="0" lean-forward="false" selection-start-line="460" selection-start-column="0" selection-end-line="460" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/logger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="31" column="28" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili_download_v2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1573">
+          <caret line="261" column="67" lean-forward="false" selection-start-line="261" selection-start-column="16" selection-end-line="261" selection-end-column="67" />
+          <folding>
+            <element signature="e#44#58#0" expanded="true" />
+            <marker date="1572316704974" expanded="false" signature="44:282" ph="import ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/file_operate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="89" column="11" lean-forward="false" selection-start-line="89" selection-start-column="11" selection-end-line="89" selection-end-column="11" />
+        <state relative-caret-position="135">
+          <caret line="26" column="15" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="15" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -638,66 +647,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/example/bilibili_video_download_v3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="213" column="45" lean-forward="true" selection-start-line="213" selection-start-column="20" selection-end-line="213" selection-end-column="45" />
+        <state relative-caret-position="391">
+          <caret line="137" column="38" lean-forward="false" selection-start-line="137" selection-start-column="12" selection-end-line="137" selection-end-column="38" />
           <folding>
-            <element signature="e#216#272#0" expanded="true" />
-            <marker date="1571985871606" expanded="true" signature="432:1268" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="847:1030" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="1278:1434" ph="'''...'''" />
-            <marker date="1571985871606" expanded="true" signature="1486:1975" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="2023:2496" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="2539:2873" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="2548:2603" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="2615:2665" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="2684:2833" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="2728:2786" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="2935:4438" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="3198:4438" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="3289:3841" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="4489:5623" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="4587:5623" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="4701:5540" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="4953:5287" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="5044:5287" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="5554:5623" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="5652:8230" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="5824:5947" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="5957:6182" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="6188:6423" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="6547:6685" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="6810:6935" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="6945:7001" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="7006:7035" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="7101:7711" ph="..." />
-            <marker date="1571985871606" expanded="true" signature="7507:7570" ph="..." />
+            <element signature="e#216#272#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logger.py">
+    <entry file="file://C:/Python36/Lib/json/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="31" column="28" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="28" />
+        <state relative-caret-position="380">
+          <caret line="366" column="0" lean-forward="false" selection-start-line="366" selection-start-column="0" selection-end-line="366" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili_download_v2.py">
+    <entry file="file://$PROJECT_DIR$/example/bilibili_video_download-GUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3491">
-          <caret line="192" column="12" lean-forward="false" selection-start-line="192" selection-start-column="12" selection-end-line="192" selection-end-column="12" />
+        <state relative-caret-position="270">
+          <caret line="122" column="13" lean-forward="true" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
           <folding>
-            <element signature="e#44#58#0" expanded="true" />
-            <marker date="1571992819000" expanded="false" signature="44:282" ph="import ..." />
+            <element signature="e#246#302#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bilibili_download.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="328" column="0" lean-forward="true" selection-start-line="328" selection-start-column="0" selection-end-line="328" selection-end-column="0" />
+        <state relative-caret-position="-1566">
+          <caret line="167" column="46" lean-forward="true" selection-start-line="167" selection-start-column="46" selection-end-line="167" selection-end-column="46" />
           <folding>
             <element signature="e#44#58#0" expanded="true" />
           </folding>
