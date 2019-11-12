@@ -383,10 +383,13 @@ if __name__ == '__main__':
         # "【哆啦A梦】美版机器猫第一季26集合集【720P】": 'https://www.bilibili.com/video/av3343014',
         # "【黑客基础】CMD命令/DOS命令学习": 'https://www.bilibili.com/video/av66315335',
         # "【黑客基础】Windows/Powershell脚本学习": 'https://www.bilibili.com/video/av66327436',
-        "144集英文动画童话故事高清合集": 'https://www.bilibili.com/video/av46525094',
+        # "144集英文动画童话故事高清合集": 'https://www.bilibili.com/video/av46525094',
         # "15分钟复习完《综合素质》-2019年教师资格考试": 'https://www.bilibili.com/video/av68982183',
         # "10分钟学会复习《教育知识与能力》": 'https://www.bilibili.com/video/av69717992',
         # "【650+】跟瑞秋老师学美语 | 316集起+英文字幕": 'https://www.bilibili.com/video/av53289663',
+        # "儿童汽车世界动漫": 'https://www.bilibili.com/video/av75376728',
+        "英文版-西游记": 'https://www.bilibili.com/video/av74137590',
+
     }
 
     # start = input('请输入您要下载的B站av号或者视频链接地址:')
@@ -407,11 +410,11 @@ if __name__ == '__main__':
         if not os.path.exists(down_video_path):
             os.makedirs(down_video_path)
         results = do_prepare(v, qn, aid)
-        start_download(results, down_video_path)
         json_file_name = re.sub(r'[\/\\:*?"<>|,#%]', '', k.replace(' ', '')) + '-result.json'
         json_file = os.path.join(down_video_path, json_file_name)
         saveJsonFile(results, json_file)
         # results = readJsonFile(json_file)
+        start_download(results, down_video_path)
         for i in results:
             state = check_video(i, down_video_path)
             # concat_video(i, down_video_path)
