@@ -2,7 +2,6 @@ import os
 import shutil
 from os.path import join, getsize
 import re
-import aiohttp
 import subprocess
 
 import sys

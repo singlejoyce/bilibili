@@ -2,47 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225ba202-2075-437b-8b75-f991a0f96bba" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/bilibili_download.py" afterPath="$PROJECT_DIR$/bilibili_download.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/bilibili.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bilibili.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/201911121419.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili_download.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili_download_v2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file_operate.py" beforeDir="false" afterPath="$PROJECT_DIR$/file_operate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getip.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ip.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_aiohttp.py" beforeDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/bilibili$_bilibili.coverage" NAME="_bilibili Coverage Results" MODIFIED="1594634280545" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/Python36/Lib/site-packages/you_get/extractors" />
     <SUITE FILE_PATH="coverage/bilibili$bilibili_download.coverage" NAME="bilibili_download Coverage Results" MODIFIED="1573539564361" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bilibili$bilibili_new.coverage" NAME="bilibili_new Coverage Results" MODIFIED="1594636791791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bilibili$bilibili_video_download_GUI.coverage" NAME="bilibili_video_download-GUI Coverage Results" MODIFIED="1573024834977" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/example" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="bilibili_download.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bilibili_download.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="416" column="48" lean-forward="false" selection-start-line="416" selection-start-column="48" selection-end-line="416" selection-end-column="48" />
-              <folding>
-                <element signature="e#44#58#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bilibili_video_download-GUI.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/bilibili_video_download-GUI.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="320" column="0" lean-forward="false" selection-start-line="320" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
-              <folding>
-                <element signature="e#245#301#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -51,131 +30,45 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>currentVideoPath</find>
-      <find>mv</find>
-      <find>headers2</find>
-      <find>Referer</find>
-      <find>page</find>
-      <find>User-Agent</find>
-      <find>requests.get</find>
-      <find>lxml</find>
-      <find>proxies</find>
-      <find>down_path</find>
-      <find>self.</find>
-      <find>https://api.bilibili.com/x/web-interface/view</find>
-      <find>down_video</find>
-      <find>get_video_url</find>
-      <find>filename</find>
-      <find>combine_video</find>
-      <find>title</find>
-      <find>aid_title</find>
-      <find>down_video_path</find>
-      <find>print</find>
-      <find>info</find>
-      <find>mylogger.info</find>
-      <find>pname_list</find>
-      <find>file_list</find>
-      <find>e</find>
-      <find>concat_video</find>
-      <find>mylogger</find>
-      <find>download_from_url</find>
-      <find>start_url</find>
-      <find>start_download</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>html.parser</replace>
-      <replace>data</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/2.py" />
-        <option value="$PROJECT_DIR$/bilibili_video_download-GUI.py" />
-        <option value="$PROJECT_DIR$/copy.py" />
-        <option value="$PROJECT_DIR$/bilibili_video_download_v3.py" />
-        <option value="$PROJECT_DIR$/move-file.py" />
-        <option value="$PROJECT_DIR$/BilibiliCrawler.py" />
-        <option value="$PROJECT_DIR$/bilibili_video_download_v2.py" />
-        <option value="$PROJECT_DIR$/py-wget.py" />
-        <option value="$PROJECT_DIR$/BilibiliCrawler2.py" />
-        <option value="$PROJECT_DIR$/getip.py" />
-        <option value="$PROJECT_DIR$/bilibili_download_v0.py" />
-        <option value="$PROJECT_DIR$/test-aiohttp.py" />
-        <option value="$PROJECT_DIR$/move_file.py" />
-        <option value="$PROJECT_DIR$/example/bilibili_video_download_v3.py" />
-        <option value="$PROJECT_DIR$/file_operate.py" />
-        <option value="$PROJECT_DIR$/bilibili_download_v2.py" />
-        <option value="$PROJECT_DIR$/example/bilibili_video_download-GUI.py" />
-        <option value="$PROJECT_DIR$/bilibili_download.py" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
-  </component>
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="bilibili" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bilibili" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectId" id="1een0fFufTuS4ZdEU11QyktR9hq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Python.bilibili_download">
+  <component name="RunManager" selected="Python.bilibili_new">
+    <configuration name="_bilibili" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bilibili" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="C:/Python36/Lib/site-packages/you_get/extractors" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:/Python36/Lib/site-packages/you_get/extractors/_bilibili.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="bilibili_download" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bilibili" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -186,15 +79,40 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="bilibili" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bilibili_download.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="bilibili_new" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bilibili" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bilibili_new.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="bilibili_video_download-GUI" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bilibili" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -205,34 +123,18 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="bilibili" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/example/bilibili_video_download-GUI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="bilibili_video_download_v3" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/example" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="bilibili" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/example/bilibili_video_download_v3.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="file_operate" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bilibili" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -243,52 +145,35 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="bilibili" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/file_operate.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
-    <configuration name="move_file" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="bilibili" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/move_file.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.bilibili_download" />
-      <item index="1" class="java.lang.String" itemvalue="Python.move_file" />
-      <item index="2" class="java.lang.String" itemvalue="Python.file_operate" />
-      <item index="3" class="java.lang.String" itemvalue="Python.bilibili_video_download_v3" />
-      <item index="4" class="java.lang.String" itemvalue="Python.bilibili_video_download-GUI" />
+    <list>
+      <item itemvalue="Python._bilibili" />
+      <item itemvalue="Python.bilibili_download" />
+      <item itemvalue="Python.bilibili_new" />
+      <item itemvalue="Python.bilibili_video_download-GUI" />
+      <item itemvalue="Python.file_operate" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.bilibili_download" />
-        <item index="1" class="java.lang.String" itemvalue="Python.bilibili_video_download-GUI" />
-        <item index="2" class="java.lang.String" itemvalue="Python.file_operate" />
-        <item index="3" class="java.lang.String" itemvalue="Python.bilibili_video_download_v3" />
-        <item index="4" class="java.lang.String" itemvalue="Python.move_file" />
+      <list>
+        <item itemvalue="Python.bilibili_new" />
+        <item itemvalue="Python._bilibili" />
+        <item itemvalue="Python.bilibili_download" />
+        <item itemvalue="Python.bilibili_video_download-GUI" />
+        <item itemvalue="Python.file_operate" />
       </list>
     </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -300,6 +185,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1571040117115</updated>
+      <workItem from="1594690712449" duration="31000" />
+      <workItem from="1594690828338" duration="705000" />
+      <workItem from="1594691554508" duration="383000" />
+      <workItem from="1594691953751" duration="3420000" />
+      <workItem from="1594705347213" duration="27774000" />
     </task>
     <servers />
   </component>
@@ -312,328 +202,100 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979977" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4640884" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979977" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22614841" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15260416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1276824" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3616019" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3533569" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37573615" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="WindowStateProjectService">
+    <state x="651" y="274" width="478" height="275" key="#Notifications" timestamp="1594864446982">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="651" y="274" width="478" height="275" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1594864446982" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1594692305059">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1594692305059" />
+    <state width="1493" height="114" key="GridCell.Tab.0.bottom" timestamp="1594883420967">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="114" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594883420967" />
+    <state width="1493" height="114" key="GridCell.Tab.0.center" timestamp="1594883420967">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="114" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594883420967" />
+    <state width="1493" height="114" key="GridCell.Tab.0.left" timestamp="1594883420966">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="114" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594883420966" />
+    <state width="1493" height="114" key="GridCell.Tab.0.right" timestamp="1594883420967">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="114" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1594883420967" />
+    <state width="1493" height="114" key="GridCell.Tab.1.bottom" timestamp="1594883420967">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="114" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594883420967" />
+    <state width="1493" height="114" key="GridCell.Tab.1.center" timestamp="1594883420967">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="114" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1594883420967" />
+    <state width="1493" height="114" key="GridCell.Tab.1.left" timestamp="1594883420967">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="114" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1594883420967" />
+    <state width="1493" height="114" key="GridCell.Tab.1.right" timestamp="1594883420967">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="114" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1594883420967" />
+    <state x="159" y="32" width="1192" height="770" key="SettingsEditor" timestamp="1594802809810">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="159" y="32" width="1192" height="770" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1594802809810" />
+    <state width="777" height="421" key="XDebugger.FullValuePopup" timestamp="1594711746354">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="777" height="421" key="XDebugger.FullValuePopup/0.0.1536.824@0.0.1536.824" timestamp="1594711746354" />
+    <state x="297" y="141" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1594712353411">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="297" y="141" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824@0.0.1536.824" timestamp="1594712353411" />
+    <state x="468" y="10" width="600" height="804" key="find.popup" timestamp="1594711981439">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="468" y="10" width="600" height="804" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1594711981439" />
+    <state x="425" y="66" width="670" height="676" key="search.everywhere.popup" timestamp="1594795082368">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="66" width="670" height="676" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1594795082368" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/bilibili_download.py</url>
-          <line>334</line>
-          <option name="timeStamp" value="64" />
+          <url>file://C:/Python36/Lib/site-packages/you_get/extractors/bilibili.py</url>
+          <line>786</line>
+          <option name="timeStamp" value="85" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/example/bilibili_video_download-GUI.py</url>
-          <line>119</line>
-          <option name="timeStamp" value="66" />
+          <url>file://C:/Python36/Lib/site-packages/you_get/extractors/netease.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://C:/Python36/Lib/site-packages/you_get/extractors/netease.py</url>
+          <line>132</line>
+          <option name="timeStamp" value="97" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="68" />
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="PythonConfigurationType">
-        <watch expression="len(i['down_url_list'])" language="Python" />
-        <watch expression="i" language="Python" />
-      </configuration>
-    </watches-manager>
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bilibili_download.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7128">
-          <caret line="264" column="0" lean-forward="true" selection-start-line="264" selection-start-column="0" selection-end-line="264" selection-end-column="0" />
-          <folding>
-            <element signature="e#44#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili_download.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6048">
-          <caret line="227" column="44" lean-forward="false" selection-start-line="227" selection-start-column="44" selection-end-line="227" selection-end-column="44" />
-          <folding>
-            <element signature="e#44#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python36/Lib/site-packages/requests/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16362">
-          <caret line="606" column="13" lean-forward="false" selection-start-line="606" selection-start-column="13" selection-end-line="606" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BilibiliCrawler2.py" />
-    <entry file="file://$PROJECT_DIR$/bilibili_video_download_v3.py" />
-    <entry file="file://$PROJECT_DIR$/BilibiliCrawler.py" />
-    <entry file="file://$PROJECT_DIR$/bilibili_video_download_v2.py" />
-    <entry file="file://$PROJECT_DIR$/bilibili_video_download-GUI.py" />
-    <entry file="file://$PROJECT_DIR$/2.py" />
-    <entry file="file://C:/Python36/Lib/urllib/request.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1451">
-          <caret line="229" column="4" lean-forward="false" selection-start-line="229" selection-start-column="4" selection-end-line="229" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BilibiliCrawler_v2.py" />
-    <entry file="file://$PROJECT_DIR$/copy.py" />
-    <entry file="file://$PROJECT_DIR$/bilibili_video_download-GUI.py" />
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1184660488/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="128" column="4" lean-forward="false" selection-start-line="128" selection-start-column="4" selection-end-line="128" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/move-file.py" />
-    <entry file="file://$PROJECT_DIR$/bilibili_video_download_v3.py" />
-    <entry file="file://$PROJECT_DIR$/BilibiliCrawler.py" />
-    <entry file="file://$PROJECT_DIR$/bilibili_video_download_v2.py" />
-    <entry file="file://C:/Python36/Lib/shutil.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="505" column="8" lean-forward="false" selection-start-line="505" selection-start-column="4" selection-end-line="505" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python36/Lib/genericpath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-492">
-          <caret line="47" column="4" lean-forward="false" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py-wget.py" />
-    <entry file="file://$PROJECT_DIR$/example/bilibili_video_download_v2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="127" column="33" lean-forward="true" selection-start-line="127" selection-start-column="33" selection-end-line="127" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BilibiliCrawler2.py" />
-    <entry file="file://C:/Python36/Lib/site-packages/requests/structures.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python36/Lib/site-packages/requests/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="601" column="24" lean-forward="false" selection-start-line="601" selection-start-column="13" selection-end-line="601" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python36/Lib/site-packages/requests/sessions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="698" column="44" lean-forward="false" selection-start-line="698" selection-start-column="36" selection-end-line="698" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/getip.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-418">
-          <caret line="95" column="14" lean-forward="true" selection-start-line="95" selection-start-column="14" selection-end-line="95" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python36/Lib/multiprocessing/process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="257" column="0" lean-forward="false" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili_download_v0.py" />
-    <entry file="file://C:/Python36/Lib/site-packages/requests/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python36/Lib/site-packages/aiohttp/client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6237">
-          <caret line="322" column="14" lean-forward="false" selection-start-line="322" selection-start-column="14" selection-end-line="322" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python36/Lib/site-packages/moviepy/video/compositing/concatenate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python36/Lib/site-packages/moviepy/video/VideoClip.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6534">
-          <caret line="262" column="0" lean-forward="false" selection-start-line="262" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python36/Lib/site-packages/aiohttp/connector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="713" column="8" lean-forward="false" selection-start-line="713" selection-start-column="8" selection-end-line="713" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python36/Lib/asyncio/events.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python36/Lib/asyncio/base_events.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="1425" column="0" lean-forward="false" selection-start-line="1425" selection-start-column="0" selection-end-line="1425" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python36/Lib/asyncio/locks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-aiohttp.py" />
-    <entry file="file://C:/Python36/Lib/site-packages/tqdm/std.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12217">
-          <caret line="765" column="8" lean-forward="false" selection-start-line="765" selection-start-column="8" selection-end-line="765" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/move_file.py" />
-    <entry file="file://$PROJECT_DIR$/example/bilibili_video_download_v3-linux.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python36/Lib/tempfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="521" column="4" lean-forward="false" selection-start-line="521" selection-start-column="4" selection-end-line="521" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python36/Lib/site-packages/imageio/plugins/ffmpeg.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili_download_v2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1573">
-          <caret line="261" column="67" lean-forward="false" selection-start-line="261" selection-start-column="16" selection-end-line="261" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/bilibili_video_download_v3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="137" column="38" lean-forward="false" selection-start-line="137" selection-start-column="12" selection-end-line="137" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python36/Lib/json/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="366" column="0" lean-forward="false" selection-start-line="366" selection-start-column="0" selection-end-line="366" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="31" column="28" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python36/Lib/subprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="460" column="0" lean-forward="false" selection-start-line="460" selection-start-column="0" selection-end-line="460" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file_operate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="26" column="15" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/bilibili_video_download-GUI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="320" column="0" lean-forward="false" selection-start-line="320" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
-          <folding>
-            <element signature="e#245#301#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili_download.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="416" column="48" lean-forward="false" selection-start-line="416" selection-start-column="48" selection-end-line="416" selection-end-column="48" />
-          <folding>
-            <element signature="e#44#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/bilibili$bilibili_new.coverage" NAME="bilibili_new Coverage Results" MODIFIED="1594883420954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
