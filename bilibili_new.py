@@ -12,7 +12,7 @@ from you_get.extractors import (
 )
 
 
-def test_bilibil(url):
+def test_bilibil():
     """
     info_only：True=查看info信息不进行下载，False=视频下载，此时output_dir/merge是必备参数，否则报错
     output_dir:视频导出的路径
@@ -21,17 +21,39 @@ def test_bilibil(url):
     caption：info_only=False时才有效；True=下载额外的信息，比如：subtitles, lyrics, danmaku，False=不下载
     :return:
     """
+    # test playlist(多p)
+    url = 'https://www.bilibili.com/video/BV1XV411B7sd'
     bilibili.download_playlist(
         url, info_only=False, output_dir='D:\\bilibili_video', merge=True,
         json_output=False, caption=True
     )
+
+    # test single video
+    # url = 'https://www.bilibili.com/video/BV1XV411B7sd'
     # bilibili.download(
     #     url, info_only=False, output_dir='D:\\bilibili_video', merge=True,
     #     json_output=False, caption=True
     # )
 
+    # test space video and have keyword or no keyword
+    # url = 'https://space.bilibili.com/50329118/video?keyword=ig'
+    # url = 'https://space.bilibili.com/50329118/video'
+    # bilibili.download_playlist(
+    #     url, info_only=False, output_dir='D:\\bilibili_video', merge=True,
+    #     json_output=False, caption=True
+    # )
 
-def test_netease(url):
+
+def test_netease():
+    # test playlist
+    url = 'https://music.163.com/#/playlist?id=2268867905'
+    # test song
+    # url = 'https://music.163.com/#/song?id=1401790402'
+    # test artist
+    # url = 'https://music.163.com/#/artist?id=187229'
+    # test album
+    # url = 'https://music.163.com/#/album?id=75116936'
+
     netease.download(
         url, info_only=False, output_dir='D:\\bilibili_video', merge=True,
         json_output=False, caption=True
@@ -58,4 +80,5 @@ if __name__ == '__main__':
 
     # print(a)
     # print(b)
-    test_netease('https://music.163.com/#/playlist?id=2819914042')
+    test_netease()
+

@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="225ba202-2075-437b-8b75-f991a0f96bba" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/bilibili.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bilibili.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/201911121419.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bilibili_download.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bilibili_download_v2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_operate.py" beforeDir="false" afterPath="$PROJECT_DIR$/file_operate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/getip.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ip.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_aiohttp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili_new.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +182,8 @@
       <workItem from="1594690828338" duration="705000" />
       <workItem from="1594691554508" duration="383000" />
       <workItem from="1594691953751" duration="3420000" />
-      <workItem from="1594705347213" duration="27774000" />
+      <workItem from="1594705347213" duration="43187000" />
+      <workItem from="1595314255280" duration="2997000" />
     </task>
     <servers />
   </component>
@@ -214,38 +208,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1594692305059" />
-    <state width="1493" height="114" key="GridCell.Tab.0.bottom" timestamp="1594883420967">
+    <state width="1493" height="202" key="GridCell.Tab.0.bottom" timestamp="1595316294014">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="114" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594883420967" />
-    <state width="1493" height="114" key="GridCell.Tab.0.center" timestamp="1594883420967">
+    <state width="1493" height="202" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595316294014" />
+    <state width="1493" height="202" key="GridCell.Tab.0.center" timestamp="1595316294014">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="114" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594883420967" />
-    <state width="1493" height="114" key="GridCell.Tab.0.left" timestamp="1594883420966">
+    <state width="1493" height="202" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1595316294014" />
+    <state width="1493" height="202" key="GridCell.Tab.0.left" timestamp="1595316294014">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="114" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594883420966" />
-    <state width="1493" height="114" key="GridCell.Tab.0.right" timestamp="1594883420967">
+    <state width="1493" height="202" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1595316294014" />
+    <state width="1493" height="202" key="GridCell.Tab.0.right" timestamp="1595316294014">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="114" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1594883420967" />
-    <state width="1493" height="114" key="GridCell.Tab.1.bottom" timestamp="1594883420967">
+    <state width="1493" height="202" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1595316294014" />
+    <state width="1493" height="109" key="GridCell.Tab.1.bottom" timestamp="1595316265235">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="114" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594883420967" />
-    <state width="1493" height="114" key="GridCell.Tab.1.center" timestamp="1594883420967">
+    <state width="1493" height="109" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595316265235" />
+    <state width="1493" height="109" key="GridCell.Tab.1.center" timestamp="1595316265235">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="114" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1594883420967" />
-    <state width="1493" height="114" key="GridCell.Tab.1.left" timestamp="1594883420967">
+    <state width="1493" height="109" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1595316265235" />
+    <state width="1493" height="109" key="GridCell.Tab.1.left" timestamp="1595316265235">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="114" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1594883420967" />
-    <state width="1493" height="114" key="GridCell.Tab.1.right" timestamp="1594883420967">
+    <state width="1493" height="109" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1595316265235" />
+    <state width="1493" height="109" key="GridCell.Tab.1.right" timestamp="1595316265235">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="114" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1594883420967" />
+    <state width="1493" height="109" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1595316265235" />
     <state x="159" y="32" width="1192" height="770" key="SettingsEditor" timestamp="1594802809810">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -254,10 +248,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="777" height="421" key="XDebugger.FullValuePopup/0.0.1536.824@0.0.1536.824" timestamp="1594711746354" />
-    <state x="297" y="141" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1594712353411">
+    <state x="297" y="141" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1595315959920">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="297" y="141" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824@0.0.1536.824" timestamp="1594712353411" />
+    <state x="297" y="141" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824@0.0.1536.824" timestamp="1595315959920" />
     <state x="468" y="10" width="600" height="804" key="find.popup" timestamp="1594711981439">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -269,23 +263,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://C:/Python36/Lib/site-packages/you_get/extractors/bilibili.py</url>
-          <line>786</line>
-          <option name="timeStamp" value="85" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://C:/Python36/Lib/site-packages/you_get/extractors/netease.py</url>
-          <line>24</line>
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://C:/Python36/Lib/site-packages/you_get/extractors/netease.py</url>
-          <line>132</line>
-          <option name="timeStamp" value="97" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -296,6 +273,6 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/bilibili$bilibili_new.coverage" NAME="bilibili_new Coverage Results" MODIFIED="1594883420954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bilibili$bilibili_new.coverage" NAME="bilibili_new Coverage Results" MODIFIED="1595316294005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
