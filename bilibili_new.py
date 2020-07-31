@@ -7,6 +7,8 @@ from you_get.extractors import (
     youtube,
     missevan,
     acfun,
+    miaopai,
+    kugou,
     netease,
     bilibili
 )
@@ -46,7 +48,8 @@ def test_bilibil():
 
 def test_netease():
     # test playlist
-    url = 'https://music.163.com/#/playlist?id=2268867905'
+    # url = 'https://music.163.com/#/playlist?id=2268867905'
+    url = 'https://music.163.com/#/artist?id=7652'
     # test song
     # url = 'https://music.163.com/#/song?id=1401790402'
     # test artist
@@ -58,6 +61,34 @@ def test_netease():
         url, info_only=False, output_dir='D:\\bilibili_video', merge=True,
         json_output=False, caption=True
     )
+
+
+def test_weibo():
+    # url = 'https://weibo.com/tv/show/1034:4363587376868999'
+    # url = 'https://weibo.com/tv/show/1034:4531673254002715'
+    url = 'https://weibo.com/tv/show/1034:4531734163947531'
+
+    miaopai.download(
+        url, info_only=False, output_dir='D:\\bilibili_video', merge=True,
+        json_output=False, caption=True
+    )
+
+
+def test_kugou():
+    # test playlist
+    # url = 'https://music.163.com/#/playlist?id=2268867905'
+    url = 'https://www.kugou.com/album/960621.html'
+    # test song
+    # url = 'https://music.163.com/#/song?id=1401790402'
+    # test artist
+    # url = 'https://music.163.com/#/artist?id=187229'
+    # test album
+    # url = 'https://music.163.com/#/album?id=75116936'
+
+    kugou.download_playlist(
+        url, info_only=False, output_dir='D:\\bilibili_video', merge=True,
+        json_output=False, caption=True
+)
 
 
 if __name__ == '__main__':
@@ -80,5 +111,5 @@ if __name__ == '__main__':
 
     # print(a)
     # print(b)
-    test_netease()
+    test_weibo()
 
